@@ -20,7 +20,7 @@ const OAuthCallback = () => {
       console.log('OAuth code received:', code);
       
       // For Google OAuth
-      if (window.location.pathname.includes('/auth/google/callback')) {
+      if (window.location.pathname.includes('/auth/callback')) {
         window.opener.postMessage({
           type: 'GOOGLE_AUTH_SUCCESS',
           code: code
