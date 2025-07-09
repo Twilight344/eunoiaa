@@ -42,7 +42,14 @@ function Signup() {
       let signupHandled = false;
 
       const messageHandler = async (event) => {
-        if (event.origin !== window.location.origin) return;
+             
+
+
+      const expectedOrigin = window.location.hostname === 'localhost'
+    ? 'http://localhost:5173'
+    : 'https://eunoiaa.vercel.app';
+
+      if (event.origin !== expectedOrigin) return;
         if (signupHandled) return;
         // Only handle Google OAuth success messages
         if (event.data.type === 'GOOGLE_AUTH_SUCCESS' && event.data.code) {
